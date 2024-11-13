@@ -46,5 +46,52 @@ export const SelectBudgetList = [
   },
 ];
 
-export const AI_PROMPT =
-  "Generate a travel plan for {location}: for {totalDays} Days and {totalNight} Night for {traveller} with a {budget} budget with flight details, flight price with booking url, hotels options list with hotel name, hotel address, price, hotel image url, geo coordinates, rating, descriptions and places to visit nearby with placeName, place details, place image url, geo coordinates, ticket pricing, time to travel to each of the location for {totalDays} days and {totalNight} night each day plan with the best time to visit in JSON format.";
+export const AI_PROMPT = `Please generate a travel plan for {location} for {totalDays} days and {totalNight} nights for a {traveller} with a {budget} budget. Generate a JSON list of hotel options in {location}. Then, generate a day-by-day itinerary for {totalDays} days. Generate all prices in RM currency. Here is the JSON template: {
+  "location": "[location]",
+  "duration": "[totalDays] Days and [totalNight] Nights",
+  "traveller": "[traveller]",
+  "budget": "[budget]",
+  "hotels": [
+    {
+      "hotelName": "[hotelName]",
+      "hotelPrice": "[hotelPrice]",
+      "hotelRating": "[hotelRating]"
+    }
+  ],
+  "dailyItinerary": {
+    "day1": {
+      "placesToVisit": [
+        {
+          "placeName": "[placeName]",
+          "placeDetails": "[placeDetails]",
+          "ticketPricing": "[ticketPricing]"
+        }
+      ],
+      "foodOptions": [
+        {
+          "restaurantName": "[restaurantName]",
+          "specialtyDishes": ["food1", "food2"],
+          "foodPrice": "[foodPrice]"
+        }
+      ]
+    },
+    "day2": {
+      "placesToVisit": [
+        {
+          "placeName": "[placeName]",
+          "placeDetails": "[placeDetails]",
+          "ticketPricing": "[ticketPricing]"
+        }
+      ],
+      "foodOptions": [
+        {
+          "restaurantName": "[restaurantName]",
+          "specialtyDishes": ["food1", "food2"],
+          "foodPrice": "[foodPrice]"
+         
+        }
+      ]
+    }
+  }
+}
+`;

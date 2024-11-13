@@ -4,7 +4,7 @@ import {
   TextInput,
   TouchableOpacity,
   SafeAreaView,
-  Alert
+  Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useNavigation, useRouter } from "expo-router";
@@ -50,7 +50,7 @@ export default function Login() {
         const errorMessage = error.message;
         console.log(errorMessage, error.code);
 
-        if(errorCode === 'auth/invalid-credential'){
+        if (errorCode === "auth/invalid-credential") {
           Alert.alert("Error", "User not found", [
             { text: "OK", onPress: () => console.log("OK Pressed") },
           ]);
@@ -95,12 +95,15 @@ export default function Login() {
             />
             <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
               {showPassword ? (
-                <Entypo name="eye" size={20} color="black" />
-              ) : (
                 <Entypo name="eye-with-line" size={20} color="black" />
+              ) : (
+                <Entypo name="eye" size={20} color="black" />
               )}
             </TouchableOpacity>
           </View>
+          <Text style={{ fontFamily: "Poppins", textAlign: "right" }}>
+            Forgot Password?
+          </Text>
         </View>
 
         {/* Login button */}

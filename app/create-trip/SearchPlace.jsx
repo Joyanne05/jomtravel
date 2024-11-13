@@ -4,11 +4,11 @@ import {
   Text,
   SafeAreaView,
   TouchableOpacity,
+  StyleSheet,
   TextInput,
 } from "react-native";
 import React from "react";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { StyleSheet } from "react-native-web";
 import { useRouter } from "expo-router";
 import { Colors } from "../../constants/Colors";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -38,7 +38,7 @@ export default function SearchPlace() {
           <Text style={styles.tripHeader}>Where are you heading to?</Text>
 
           {/* Search bar */}
-          <View style={{ height: "100%" }}>
+          <View style={{ flex: 1 }}>
             <GooglePlacesAutocomplete
               styles={{
                 listView: {
@@ -59,11 +59,6 @@ export default function SearchPlace() {
                 returnKeyType: "search",
               }}
               onPress={(data, details = null) => {
-                // 'details' is provided when fetchDetails = true
-                console.log(data.description);
-                console.log(details?.geometry.location);
-                console.log(details?.photos[0].photo_reference);
-                console.log(details?.url);
                 setTripData({
                   locationInfo: {
                     name: data.description,
@@ -94,7 +89,7 @@ const styles = StyleSheet.create({
 
   tripInnerContainer: {
     padding: 15,
-    height: "100%",
+    height:"100%",
   },
 
   tripHeader: {
