@@ -1,6 +1,5 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import Colors from "../../constants/Colors";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useRouter } from "expo-router";
 
